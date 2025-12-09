@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Projects - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 30px;">🌟 重点项目 (Featured)</h2>
+        
+        <div class="card" style="border: 2px solid var(--primary-blue);">
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 style="color: var(--primary-blue); margin-top: 0;">宠物健康 AI 智能诊断系统 (Pet Doctor)</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-gray);">基于多模态大模型(LLM)的全科宠物医疗辅助系统</p>
+                    
+                    <div style="margin: 15px 0;">
+                        <span class="tag">Qwen2.5-VL</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">微信小程序</span>
+                    </div>
+
+                    <p><strong>核心功能：</strong></p>
+                    <ul>
+                        <li><strong>视觉诊断：</strong>利用微调后的 Qwen-VL 模型，支持口腔、皮肤、眼科、排泄物等图像的病理分析。</li>
+                        <li><strong>声音翻译：</strong>基于 Audio 模型识别宠物叫声情绪与意图。</li>
+                        <li><strong>多模态融合：</strong>结合视觉、听觉与文本症状，提供综合医疗建议。</li>
+                    </ul>
+                    <p><strong>技术亮点：</strong>设计了“后融合”架构，分别处理视觉与音频流，结合向量数据库(Milvus)构建私有兽医知识库，实现高精度问诊。</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #E3F2FD; border-radius: 10px; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                    <span style="color: #89CFF0;">Project Image / Demo Area</span>
+                </div>
+            </div>
+        </div>
+
+        <h2 style="text-align: center; margin: 40px 0 30px;">🔬 算法研究 (Research & Engineering)</h2>
+
+        <div class="card">
+            <h3>PMMW 违禁品智能检测系统</h3>
+            <p><strong>技术栈：</strong>YOLOv8, TensorRT, 深度可分离卷积</p>
+            <p>针对被动毫米波(PMMW)图像，优化 Backbone 和 Neck 结构，引入多支解耦头。采用 FP32-INT8 全量化策略，模型压缩率达 26.98%，推理速度提升 37.5%。</p>
+        </div>
+
+        <div class="card">
+            <h3>OPE 多任务推荐算法优化</h3>
+            <p><strong>技术栈：</strong>TensorFlow, MMOE/PLE, Embedding</p>
+            <p>设计 OPE (Optimized Private Expert) 结构缓解多任务学习中的负迁移问题。引入特征优选机制与个性化 Embedding，在离线实验中 CTR 提升 0.10%，CVR 提升 0.15%。</p>
+        </div>
+
+        <div class="card">
+            <h3>元学习冷启动 Embedding 框架</h3>
+            <p><strong>技术栈：</strong>Meta Learning, MAML, Contrastive Learning</p>
+            <p>利用元学习解决推荐系统 Item 冷启动问题。通过对比学习对齐异源 Embedding 空间，离线 GAUC 提升 1 个百分点。</p>
+        </div>
+
+    </div>
+</body>
+</html>
