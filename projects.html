@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 2.2rem; margin-bottom: 10px;">项目经历</h1>
+            <p style="color: var(--text-gray);">多模态 / 计算机视觉 / 搜索推荐 / 音频算法 / 网页开发</p>
+        </header>
+
+        <h2 class="category-title">🧩 多模态与AIGC (Multimodal AI)</h2>
+        
+        <a href="project-pet-doctor.html" class="card-link" style="text-decoration: none; color: inherit; display: block;">
+            <div class="card" style="border-left: 6px solid var(--primary-blue); transition: transform 0.3s ease;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3>宠物健康 AI 智能诊断系统 (Pet Doctor)</h3>
+                    <span class="tag" style="background: #FFF3E0; color: #F57C00; border:none;">🌟 点击查看详情页 ↗</span>
+                </div>
+                <p style="font-size: 0.95rem; color: var(--text-gray); margin-bottom: 20px;">
+                    全栈式宠物医疗辅助小程序，融合视觉、音频与文本的多模态大模型技术。
+                </p>
+                
+                <div style="margin-bottom: 20px;">
+                    <span class="tag">Qwen2.5-VL</span>
+                    <span class="tag">RAG (Milvus)</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag">微信小程序</span>
+                </div>
+
+                <ul class="project-details">
+                    <li><strong>项目背景：</strong>针对宠物医疗资源不均问题，开发基于微调大模型的智能问诊系统。</li>
+                    <li><strong>核心技术：</strong>
+                        <br>1. <strong>多模态诊断：</strong>使用 <strong>Qwen2.5-VL</strong> 处理用户上传的患处图片（口腔、皮肤、眼科），结合文本描述生成病理分析。
+                        <br>2. <strong>声音情感分析：</strong>集成音频模型识别宠物叫声情绪（焦虑/疼痛/兴奋），辅助判断宠物状态。
+                        <br>3. <strong>RAG 知识库：</strong>构建基于 Milvus 的兽医知识库（包含兽医教材、药品说明书），确保护理建议的专业性。
+                    </li>
+                    <li><strong>架构设计：</strong>采用“后融合”策略，独立处理视觉流与音频流，最后由 LLM 整合生成综合诊断报告。</li>
+                    <li><strong>成果：</strong>实现了口腔、皮肤等5大科室的初步筛查，并成功上线微信小程序端。</li>
+                </ul>
+                
+                <div style="margin-top: 20px; text-align: right; color: var(--primary-blue); font-weight: 600; font-size: 0.9rem;">
+                    查看架构图与界面展示 <span style="font-size: 1.2em;">→</span>
+                </div>
+            </div>
+        </a>
+
+        <h2 class="category-title">👁️ 计算机视觉 (Computer Vision)</h2>
+
+        <div class="card">
+            <h3>实心球智能检测与测距系统</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">北大信息技术科创中心 | 算法实习项目</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">YOLOv8-改进</span>
+                <span class="tag">BiFPN</span>
+                <span class="tag">C++</span>
+                <span class="tag">SAHI</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>痛点解决：</strong>针对实心球目标小、运动模糊、背景干扰强的问题，提出了一套高精度检测方案。</li>
+                <li><strong>算法改进：</strong>引入 <strong>BiFPN</strong> 特征金字塔和轻量级 FRMHead，配合 NWD Loss 和 <strong>SAHI</strong> 切片推理技术，显著提升小目标检出率。</li>
+                <li><strong>落点与测距：</strong>设计了“轨迹聚类+趋势反转”算法精准定位落点；开发分区投影+偏差曲面矫正算法进行测距。</li>
+                <li><strong>工程落地：</strong>完成模型 ONNX 转 BMODEL 量化，使用 BMCV 进行端侧 C++ 部署，修复精度问题（统一 double 精度）。</li>
+                <li><strong>成果：</strong>小目标 mAP 达到 <span class="highlight-text">112%</span>（相对基线），落地帧误差≤1帧，测距误差≤1cm，<strong>已撰写专利</strong>。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>PMMW 违禁品轻量化检测</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">学术研究项目 | 论文/竞赛</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">模型压缩</span>
+                <span class="tag">剪枝量化</span>
+                <span class="tag">TensorRT</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>任务：</strong>在被动毫米波（PMMW）图像中实时检测隐匿违禁品。</li>
+                <li><strong>模型优化：</strong>Backbone 融合深度可分离卷积，Neck 去除冗余特征层；检测头采用多支解耦与非对称压缩。</li>
+                <li><strong>部署策略：</strong>设计自适应校准算法，实施 <strong>FP32-INT8 全量化</strong>。</li>
+                <li><strong>成果：</strong>模型压缩率达 26.98%，推理速度提升 <span class="highlight-text">37.5%</span>，低对比度场景下 mAP 提升 4.2%。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>复杂场景烟火检测与量化</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">北大信息技术科创中心 | 算法实习项目</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">数据清洗</span>
+                <span class="tag">QAT量化</span>
+                <span class="tag">工程落地</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>难点：</strong>聚集场景下误检率高，且需并在端侧设备运行。</li>
+                <li><strong>策略：</strong>重建数据集（加硬负样本），设计<strong>双版本模型策略</strong>：
+                    <br>1. 低召回高精度版（烟火合一 + 连续帧触发）：用于极低误报场景。
+                    <br>2. 高召回低精度版（仅火）：用于全检出场景。</li>
+                <li><strong>量化：</strong>从 DeepSparse QAT 转为“FP预训→QAT微调→校准”流程，并对齐算子，成功在客户侧交付。</li>
+            </ul>
+        </div>
+
+        <h2 class="category-title">📈 搜索与推荐系统 (Search & RecSys)</h2>
+
+        <div class="card">
+            <h3>OPE：面向多任务学习的精排优化模型</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">学术研究项目 | 推荐算法</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">多任务学习 (MTL)</span>
+                <span class="tag">MMOE/PLE</span>
+                <span class="tag">Feature Selection</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>背景：</strong>解决 MMOE/PLE 等模型在离线训练时的任务冲突与“负迁移”问题。</li>
+                <li><strong>创新点 (OPE结构)：</strong>
+                    <br>1. <strong>特征优选：</strong>每个任务独立选择最相关特征子集，物理隔离噪声。
+                    <br>2. <strong>个性化 Embedding：</strong>共享特征ID但使用独立 Embedding 参数，实现任务定制化表达。</li>
+                <li><strong>成果：</strong>在公开广告数据集上，CTR任务 AUC 提升 0.10%，CVR 提升 0.15%，LogLoss 下降约 0.5%。</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>基于元学习的冷启动 Embedding 框架</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">学术研究项目 | 冷启动优化</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Meta Learning (MAML)</span>
+                <span class="tag">Contrastive Learning</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>目标：</strong>利用元学习（Meta Learning）解决新物品（Item）的 ID Embedding 初始化问题。</li>
+                <li><strong>方法：</strong>构造 ID Embedding 生成器，使用 MAML 训练；引入<strong>对比学习</strong>增强任务，拉近同源 Embedding 距离，推远异源距离；对交互序列去噪。</li>
+                <li><strong>成果：</strong>离线 GAUC 从 0.85 提升至 <span class="highlight-text">0.86</span>。</li>
+            </ul>
+        </div>
+
+        <h2 class="category-title">🎵 音频算法 (Audio Algorithms)</h2>
+
+        <div class="card">
+            <h3>短时脉冲音检测与异常监控</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">巅峰表现 | 音频算法实习</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Log-Mel/MFCC</span>
+                <span class="tag">TC-ResNet</span>
+                <span class="tag">异常检测</span>
+            </div>
+            <ul class="project-details">
+                <li><strong>难点：</strong>脉冲音极短、易被背景噪掩盖，且突变特征弱。</li>
+                <li><strong>算法：</strong>
+                    <br>1. 数据增强：通过异常样本扩充与首/中/尾位置混入，纠正分布偏置。
+                    <br>2. 模型构建：采用 Log-Mel/MFCC 特征 + 时间切块，构建 <strong>TC-ResNet/DS-CNN</strong> 监督基线及 MAE 自监督基线。
+                    <br>3. 异常检测：构建向量库，使用 TSNE 抽样 + P95/P99 阈值冷却机制进行异常判定。</li>
+                <li><strong>全链路工程：</strong>完成从前端数据配置到训练、测试的自动化脚本（YAML/JSON配置，BPMN工作流）。</li>
+            </ul>
+        </div>
+
+        <h2 class="category-title">🌍 GitHub仓库主页</h2>
+
+        <div class="card" style="border: 1px solid #E3F2FD; background: #FAFAFA;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3>个人作品集主页 (Personal Portfolio)</h3>
+                <span class="tag" style="background: #E8F5E9; color: #2E7D32; border:none;">🟢 Live Online</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 20px;">GitHub Pages 个人技术展示网站。</p>
+           
+
+            <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+
+                <a href="https://github.com/cuipangpang/" target="_blank" class="btn" style="padding: 8px 20px; font-size: 0.9rem; background: var(--white); color: var(--primary-blue); border: 1px solid var(--primary-blue); box-shadow: none;">
+                    <span style="margin-right: 5px;">🌍</span> 访问网站
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
