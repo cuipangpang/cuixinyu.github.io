@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container" style="text-align: center; padding-top: 60px;">
+        <div class="card" style="max-width: 600px; margin: 0 auto;">
+            <h2 style="color: var(--primary-blue); margin-bottom: 30px;">Let's Connect!</h2>
+            
+            <p style="font-size: 1.1rem; margin-bottom: 40px;">
+                我目前正在寻找 <strong>算法工程师 / 深度学习工程师</strong> 的全职机会。<br>
+                如果您对我的背景感兴趣，欢迎随时联系。
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                <div style="background: var(--light-blue); padding: 15px 40px; border-radius: 50px; color: var(--text-dark);">
+                    📧 邮箱: 1042617184@qq.com
+                </div>
+                <div style="background: var(--light-blue); padding: 15px 40px; border-radius: 50px; color: var(--text-dark);">
+                    💬 微信: cuipangpang0902
+                </div>
+            </div>
+
+            <div style="margin-top: 50px; border-top: 1px solid #eee; padding-top: 30px;">
+                <a href="resume.pdf" download class="btn">📥 下载完整简历 (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+</body>
+</html>

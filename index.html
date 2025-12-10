@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>崔馨予 | 算法工程师</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container" style="text-align: center; margin-top: 80px;">
+        <div class="profile-section">
+
+            <h1 style="font-size: 2.8rem; margin: 20px 0 10px; color: var(--text-dark);">Hello, I'm 崔馨予.</h1>
+            <p style="color: var(--text-gray); font-size: 1.3rem; margin-bottom: 30px;">
+                算法工程师 (Algorithm Engineer) <br>
+                <span style="font-size: 1rem; margin-top: 10px; display: block;">
+                    CV / RecSys / Multimodal / Audio 
+                </span>
+            </p>
+            
+            <div style="margin-bottom: 40px;">
+                <span class="tag">Ajou University 硕士</span>
+                <span class="tag">延边大学 (211)</span>
+                <span class="tag">北大信息技术科创中心实习经历</span>
+                <span class="tag">GPA Top 5%</span>
+            </div>
+
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="projects.html" class="btn">查看项目经历</a>
+                <a href="about.html" class="btn" style="background: var(--white); color: var(--text-dark); border: 1px solid var(--border-color);">了解更多</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+</body>
+</html>

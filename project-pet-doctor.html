@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Doctor 详情 - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <a href="projects.html" class="back-btn">← 返回项目列表</a>
+
+        <div class="project-header">
+            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: var(--text-dark);">宠物健康 AI 智能诊断系统</h1>
+            <p style="font-size: 1.2rem; color: var(--text-gray);">基于 Qwen2.5-VL 多模态大模型与 RAG 技术的全科宠物医疗辅助平台</p>
+            
+            <div style="margin-top: 30px;">
+                <span class="tag">微信小程序</span>
+                <span class="tag">全科诊断</span>
+                <span class="tag">异宠支持</span>
+                <span class="tag">行为分析</span>
+            </div>
+        </div>
+
+        <h2 class="category-title">🏗️ 系统架构 (System Architecture)</h2>
+        <div class="architecture-section">
+            <div class="arch-img-wrapper">
+                <img src="arch.png" alt="系统技术架构图" onerror="this.style.display='none'; this.parentNode.innerHTML='<p style=\'color:#aaa;\'>请上传图片命名为 arch.png</p>'">
+            </div>
+            <div style="background: #F0F9FF; padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary-blue);">
+                <h4 style="margin-top: 0; color: var(--secondary-blue); margin-bottom: 10px;">架构设计说明：</h4>
+                <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0;">
+                    系统采用了<strong>“端云协同 + 后融合”</strong>的设计模式。前端小程序负责采集多模态数据（图片、音频、文本），后端 FastAPI 网关分发任务：视觉流进入 Qwen-VL 进行病灶识别，音频流进入声学模型提取 MFCC 特征进行情绪分类。最终由 LLM 结合 Milvus 知识库（RAG）生成综合诊断报告。
+                </p>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <h2 class="category-title">🩺 AI 临床诊断模块 (Clinical Diagnosis)</h2>
+            <p style="color: var(--text-gray);">基于 CV 计算机视觉与医学知识库，覆盖四大核心科室。</p>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🦠</div>
+                    <h3>皮肤病变检测</h3>
+                    <p>通过对比学习区分真菌感染（猫藓）、螨虫、细菌性皮炎与过敏。支持患处分割与严重程度分级。</p>
+                    <div>
+                        <span class="tech-mini-tag">Contrastive Learning</span>
+                        <span class="tech-mini-tag">Few-shot</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👂</div>
+                    <h3>耳道健康分析</h3>
+                    <p>基于耳镜图像识别耳螨、马拉色菌感染（褐色分泌物）及中耳炎。结合颜色与纹理特征提取。</p>
+                    <div>
+                        <span class="tech-mini-tag">Texture Analysis</span>
+                        <span class="tech-mini-tag">Color Histogram</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h3>眼科疾病筛查</h3>
+                    <p>检测角膜混浊、樱桃眼、结膜炎及白内障。精准定位眼部区域，排除泪痕干扰。</p>
+                    <div>
+                        <span class="tech-mini-tag">YOLOv8-Seg</span>
+                        <span class="tech-mini-tag">ROI Extraction</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💩</div>
+                    <h3>消化系统分析</h3>
+                    <p><strong>排泄物：</strong>基于 Bristol 分级标准自动评分（Grade 1-5），检测寄生虫与潜血。<br><strong>呕吐物：</strong>分析颜色（胆汁/血液）与未消化食物，预警细小病毒等急症。</p>
+                    <div>
+                        <span class="tech-mini-tag">Feature Classification</span>
+                        <span class="tech-mini-tag">Medical Logic</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <h2 class="category-title">🧠 行为与认知分析 (Behavior & Cognition)</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">😺</div>
+                    <h3>多模态情绪识别</h3>
+                    <p>融合视觉（耳位/瞳孔/尾巴状态）与听觉（叫声频率/音高），识别焦虑、疼痛、兴奋等 6 种情绪状态。</p>
+                    <div>
+                        <span class="tech-mini-tag">Multimodal Fusion</span>
+                        <span class="tech-mini-tag">Audio-Visual</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🐕</div>
+                    <h3>异常行为监控</h3>
+                    <p>识别睡眠、玩耍、跛行等行为模式。结合时间序列数据，预警骨关节炎或分离焦虑倾向。</p>
+                    <div>
+                        <span class="tech-mini-tag">Action Recognition</span>
+                        <span class="tech-mini-tag">Time-Series</span>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🔎</div>
+                    <h3>精准品种鉴定</h3>
+                    <p>支持 100+ 种犬猫品种识别。基于细粒度图像分类技术，辅助兽医判断品种特异性遗传病风险。</p>
+                    <div>
+                        <span class="tech-mini-tag">Fine-grained Classification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="feature-section">
+            <h2 class="category-title">🐹 异宠专科支持 (Exotic Pets)</h2>
+            <div class="card" style="background: #FDFEFE; border-left: 5px solid #FFB74D;">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <span style="font-size: 1.5rem; margin-right: 10px;">🦎</span>
+                    <h3 style="margin: 0; color: #E65100;">爬行类与小型哺乳动物支持</h3>
+                </div>
+                <p style="color: var(--text-gray);">针对非犬猫类宠物建立专门的知识库与识别模型，填补市场空白。</p>
+                <ul class="project-details">
+                    <li><strong>支持物种：</strong>仓鼠、兔子、龙猫、乌龟、蜥蜴、鹦鹉等。</li>
+                    <li><strong>特异性诊断：</strong>
+                        <br>🐀 <strong>啮齿类：</strong>湿尾症、牙齿过长、脱毛检测。
+                        <br>🐢 <strong>爬行类：</strong>龟壳腐甲病、软壳病、蜥蜴代谢性骨病识别。
+                        <br>🐦 <strong>鸟类：</strong>羽毛啄拔、鸟喙生长异常检测。
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="category-title">📱 界面功能展示 (UI Showcase)</h2>
+        <div class="mobile-showcase">
+            <div>
+                <div class="phone-frame">
+                    <img src="ui1.png" alt="智能扫描界面" onerror="this.src='https://via.placeholder.com/300x600/E3F2FD/89CFF0?text=科室选择界面'">
+                </div>
+                <div class="showcase-caption">1. 主界面</div>
+            </div>
+
+            <div>
+                <div class="phone-frame">
+                    <img src="ui2.png" alt="AI分析过程" onerror="this.src='https://via.placeholder.com/300x600/E3F2FD/89CFF0?text=病灶识别分析'">
+                </div>
+                <div class="showcase-caption">2. 宠物音频翻译界面</div>
+            </div>
+
+            <div>
+                <div class="phone-frame">
+                    <img src="ui3.png" alt="诊断报告" onerror="this.src='https://via.placeholder.com/300x600/E3F2FD/89CFF0?text=综合诊断报告'">
+                </div>
+                <div class="showcase-caption">3. 部分结果展示</div>
+            </div>
+        </div>
+
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+</body>
+</html>
