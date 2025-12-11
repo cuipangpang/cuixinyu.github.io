@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" data-i18n="nav_about">About</a>
+            <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+            <div class="lang-wrapper">
+                <select id="lang-selector">
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header style="text-align: center; margin-bottom: 60px;">
+            <h1 style="font-size: 2.2rem; margin-bottom: 10px;" data-i18n="proj_main_title">项目经历</h1>
+            <p style="color: var(--text-gray);" data-i18n="proj_main_subtitle">多模态 / 计算机视觉 / 搜索推荐 / 音频算法 / 网页开发</p>
+        </header>
+
+        <h2 class="category-title" data-i18n="cat_multi">🧩 多模态与AIGC (Multimodal AI)</h2>
+        
+        <a href="project-pet-doctor.html" class="card-link">
+            <div class="card" style="border-left: 6px solid var(--primary-blue);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                    <h3 data-i18n="pd_page_title">宠物健康 AI 智能诊断系统</h3>
+                    <span class="tag" style="background: #FFF3E0; color: #F57C00; border:none;" data-i18n="view_details">点击查看详情页 ↗</span>
+                </div>
+                <p style="font-size: 0.95rem; color: var(--text-gray); margin-bottom: 20px;" data-i18n="pd_card_desc">
+                    全栈式宠物医疗辅助小程序，融合视觉、音频与文本的多模态大模型技术。
+                </p>
+                <div style="margin-bottom: 20px;">
+                    <span class="tag">Qwen2.5-VL</span>
+                    <span class="tag">RAG (Milvus)</span>
+                    <span class="tag">FastAPI</span>
+                    <span class="tag" data-i18n="pd_tag_1">微信小程序</span>
+                </div>
+                <ul class="project-details">
+                    <li data-i18n="pd_list_bg"></li>
+                    <li data-i18n="pd_list_tech"></li>
+                    <li data-i18n="pd_list_arch"></li>
+                    <li data-i18n="pd_list_res"></li>
+                </ul>
+                <div style="margin-top: 20px; text-align: right; color: var(--primary-blue); font-weight: 600; font-size: 0.9rem;" data-i18n="view_arch">
+                    查看架构图与界面展示 →
+                </div>
+            </div>
+        </a>
+
+        <h2 class="category-title" data-i18n="cat_cv">👁️ 计算机视觉 (Computer Vision)</h2>
+
+        <div class="card">
+            <h3 data-i18n="cv_ball_title">实心球智能检测与测距系统</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="cv_ball_sub">北大信息技术科创中心 | 算法实习项目</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">YOLOv8</span> <span class="tag">BiFPN</span> <span class="tag">C++</span> <span class="tag">SAHI</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="cv_ball_pt"></li>
+                <li data-i18n="cv_ball_algo"></li>
+                <li data-i18n="cv_ball_loc"></li>
+                <li data-i18n="cv_ball_eng"></li>
+                <li data-i18n="cv_ball_res"></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="cv_pmmw_title">PMMW 违禁品轻量化检测</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="cv_pmmw_sub">学术研究项目 | 论文/竞赛</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Pruning</span> <span class="tag">Quantization</span> <span class="tag">TensorRT</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="cv_pmmw_task"></li>
+                <li data-i18n="cv_pmmw_opt"></li>
+                <li data-i18n="cv_pmmw_dep"></li>
+                <li data-i18n="cv_pmmw_res"></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="cv_fire_title">复杂场景烟火检测与量化</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="cv_fire_sub">北大信息技术科创中心 | 算法实习项目</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Data Cleaning</span> <span class="tag">QAT</span> <span class="tag">Engineering</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="cv_fire_dif"></li>
+                <li data-i18n="cv_fire_str"></li>
+                <li data-i18n="cv_fire_qat"></li>
+            </ul>
+        </div>
+
+        <h2 class="category-title" data-i18n="cat_recsys">📈 搜索与推荐系统 (Search & RecSys)</h2>
+
+        <div class="card">
+            <h3 data-i18n="rs_ope_title">OPE：面向多任务学习的精排优化模型</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="rs_ope_sub">学术研究项目 | 推荐算法</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">MTL</span> <span class="tag">MMOE/PLE</span> <span class="tag">Feature Selection</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="rs_ope_bg"></li>
+                <li data-i18n="rs_ope_inno"></li>
+                <li data-i18n="rs_ope_res"></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3 data-i18n="rs_meta_title">基于元学习的冷启动 Embedding 框架</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="rs_meta_sub">学术研究项目 | 冷启动优化</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Meta Learning</span> <span class="tag">Contrastive Learning</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="rs_meta_goal"></li>
+                <li data-i18n="rs_meta_method"></li>
+                <li data-i18n="rs_meta_res"></li>
+            </ul>
+        </div>
+
+        <h2 class="category-title" data-i18n="cat_audio">🎵 音频算法 (Audio Algorithms)</h2>
+
+        <div class="card">
+            <h3 data-i18n="au_pulse_title">短时脉冲音检测与异常监控</h3>
+            <p style="font-size: 0.9rem; color: var(--text-gray);" data-i18n="au_pulse_sub">巅峰表现 | 音频算法实习</p>
+            <div style="margin-bottom: 15px;">
+                <span class="tag">Log-Mel/MFCC</span> <span class="tag">TC-ResNet</span> <span class="tag">Anomaly Detection</span>
+            </div>
+            <ul class="project-details">
+                <li data-i18n="au_pulse_dif"></li>
+                <li data-i18n="au_pulse_algo"></li>
+                <li data-i18n="au_pulse_eng"></li>
+            </ul>
+        </div>
+
+        <h2 class="category-title" data-i18n="cat_github">🌍 GitHub仓库主页</h2>
+
+        <div class="card" style="border: 1px solid #E3F2FD; background: #FAFAFA;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 data-i18n="gh_portfolio_title">个人作品集主页 (Personal Portfolio)</h3>
+                <span class="tag" style="background: #E8F5E9; color: #2E7D32; border:none;">🟢 Live Online</span>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-gray); margin-bottom: 20px;" data-i18n="gh_portfolio_desc">GitHub Pages 个人技术展示网站。</p>
+            <div style="margin-top: 25px; display: flex; gap: 15px; flex-wrap: wrap;">
+                <a href="https://github.com/cuipangpang/" target="_blank" class="btn" style="padding: 8px 20px; font-size: 0.9rem; background: var(--white); color: var(--primary-blue); border: 1px solid var(--primary-blue); box-shadow: none;">
+                    <span style="margin-right: 5px;">🌍</span> <span data-i18n="btn_visit_site">访问网站</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+    <script src="lang.js"></script>
+</body>
+</html>

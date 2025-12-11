@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - 崔馨予</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">CUI XINYU</div>
+        <div class="hamburger">☰</div>
+        <div class="nav-links">
+            <a href="index.html" data-i18n="nav_home">Home</a>
+            <a href="about.html" class="active" data-i18n="nav_about">About</a>
+            <a href="projects.html" data-i18n="nav_projects">Projects</a>
+            <a href="contact.html" data-i18n="nav_contact">Contact</a>
+            <div class="lang-wrapper">
+                <select id="lang-selector">
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2 style="color: var(--primary-blue);" data-i18n="about_edu_title">🎓 教育背景</h2>
+            <div style="margin-bottom: 30px;">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3>Ajou University (qs前500)</h3>
+                    <span style="color: var(--text-gray);">2023.9 - </span>
+                </div>
+                <p style="color: var(--text-gray);" data-i18n="about_master_role">硕士 | 计算机科学与技术</p>
+                <p><strong>GPA:</strong> 4.25/4.5 (Top 5%)</p>
+                <p data-i18n="about_master_courses"></p>
+            </div>
+            <div>
+                <div style="display: flex; justify-content: space-between;">
+                    <h3>Yanbian University (211)</h3>
+                    <span style="color: var(--text-gray);">2019.6 - 2023.6</span>
+                </div>
+                <p style="color: var(--text-gray);" data-i18n="about_bachelor_role">本科 | 计算机科学与技术</p>
+                <p data-i18n="about_bachelor_courses"></p>
+                <p data-i18n="about_bachelor_minor"></p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="color: var(--primary-blue);" data-i18n="about_work_title">💼 工作与实习经历</h2>
+            
+            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #eee;">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 data-i18n="pku_role">北大信息技术科创中心 | 算法实习生</h3>
+                    <span style="color: var(--text-gray);">2025.6 - 2025.12</span>
+                </div>
+                <ul class="project-details">
+                    <li data-i18n="pku_desc_1"></li>
+                    <li data-i18n="pku_desc_2"></li>
+                    <li data-i18n="pku_desc_3"></li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px dashed #eee;">
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 data-i18n="peak_role">巅峰表现 | 音频算法实习生</h3>
+                    <span style="color: var(--text-gray);">2025.5 - 2025.6</span>
+                </div>
+                <ul class="project-details">
+                    <li data-i18n="peak_desc_1"></li>
+                    <li data-i18n="peak_desc_2"></li>
+                </ul>
+            </div>
+
+            <div>
+                <div style="display: flex; justify-content: space-between;">
+                    <h3 data-i18n="ajou_role">Ajou University | 机器学习课程助教</h3>
+                    <span style="color: var(--text-gray);">2024.3 - 2025.2</span>
+                </div>
+                <ul class="project-details">
+                    <li data-i18n="ajou_desc_1"></li>
+                    <li data-i18n="ajou_desc_2"></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="color: var(--primary-blue);" data-i18n="about_honor_title">🏆 荣誉与成果</h2>
+            <ul class="project-details">
+                <li data-i18n="honor_1"></li>
+                <li data-i18n="honor_2"></li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2 style="color: var(--primary-blue);" data-i18n="about_tech_title">🛠 技术栈</h2>
+            <div>
+                <span class="tag">Python / C++</span>
+                <span class="tag">PyTorch / TensorFlow</span>
+                <span class="tag">YOLO / TensorRT / ONNX</span>
+                <span class="tag">LLM / RAG / LangChain</span>
+                <span class="tag">MySQL / Milvus</span>
+                <span class="tag">Linux / Git / Docker</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+    </script>
+    <script src="lang.js"></script>
+</body>
+</html>
