@@ -1,156 +1,256 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pet Doctor - 崔馨予</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pet Doctor - 崔馨予</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ 覆盖/补充：让 video 和 UI 图片同样大小 + 自适应 -->
+  <style>
+    /* 让 showcase 变成“卡片等宽”布局，避免某一个元素撑满整行 */
+    .mobile-showcase{
+      display: flex !important;
+      flex-wrap: wrap !important;
+      gap: 24px !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      margin-top: 16px !important;
+    }
+
+    /* 每个展示项：固定最大宽度，不允许被拉得很宽 */
+    .mobile-showcase > div{
+      flex: 0 0 auto !important;
+      width: 220px !important;          /* ✅ 桌面默认宽度（你可以改 200/240） */
+      max-width: 220px !important;
+    }
+
+    /* 手机上的自适应：两列或一列 */
+    @media (max-width: 768px){
+      .mobile-showcase > div{
+        width: calc(50% - 12px) !important;   /* 两列 */
+        max-width: none !important;
+      }
+    }
+    @media (max-width: 420px){
+      .mobile-showcase > div{
+        width: 100% !important;              /* 一列 */
+      }
+    }
+
+    /* 手机框：固定宽高比，内部内容(图片/视频)填充裁切 */
+    .phone-frame{
+      width: 100% !important;
+      aspect-ratio: 9 / 19.5 !important; /* ✅ 类似手机屏比例 */
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      background: #000 !important;
+      position: relative !important;
+    }
+
+    /* 让 img / video 都以同一种方式适配 phone-frame */
+    .phone-frame img,
+    .phone-frame video{
+      width: 100% !important;
+      height: 100% !important;
+      display: block !important;
+      object-fit: cover !important;
+    }
+
+    /* caption 不要把布局撑开 */
+    .showcase-caption{
+      text-align: center !important;
+      margin-top: 10px !important;
+      font-size: 0.95rem !important;
+      color: var(--text-gray) !important;
+    }
+  </style>
 </head>
+
 <body>
-    <nav>
-        <div class="logo">CUI XINYU</div>
-        <div class="hamburger">☰</div>
-        <div class="nav-links">
-            <a href="index.html" data-i18n="nav_home">Home</a>
-            <a href="about.html" data-i18n="nav_about">About</a>
-            <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
-            <a href="contact.html" data-i18n="nav_contact">Contact</a>
-            <div class="lang-wrapper">
-                <select id="lang-selector">
-                    <option value="zh">🇨🇳 中文</option>
-                    <option value="en">🇺🇸 English</option>
-                    <option value="ko">🇰🇷 한국어</option>
-                    <option value="ja">🇯🇵 日本語</option>
-                </select>
-            </div>
-        </div>
-    </nav>
+  <nav>
+    <div class="logo">CUI XINYU</div>
+    <div class="hamburger">☰</div>
+    <div class="nav-links">
+      <a href="index.html" data-i18n="nav_home">Home</a>
+      <a href="about.html" data-i18n="nav_about">About</a>
+      <a href="projects.html" class="active" data-i18n="nav_projects">Projects</a>
+      <a href="contact.html" data-i18n="nav_contact">Contact</a>
+      <div class="lang-wrapper">
+        <select id="lang-selector">
+          <option value="zh">🇨🇳 中文</option>
+          <option value="en">🇺🇸 English</option>
+          <option value="ko">🇰🇷 한국어</option>
+          <option value="ja">🇯🇵 日本語</option>
+        </select>
+      </div>
+    </div>
+  </nav>
 
-    <div class="container">
-        <a href="projects.html" class="back-btn" data-i18n="back_projects">← 返回项目列表</a>
+  <div class="container">
+    <a href="projects.html" class="back-btn" data-i18n="back_projects">← 返回项目列表</a>
 
-        <div class="project-header">
-            <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: var(--text-dark);" data-i18n="pd_page_title">宠物健康 AI 智能诊断系统</h1>
-            <p style="font-size: 1.2rem; color: var(--text-gray);" data-i18n="pd_page_sub">基于 Qwen2.5-VL 多模态大模型与 RAG 技术的全科宠物医疗辅助平台</p>
-            
-            <div style="margin-top: 30px;">
-                <span class="tag" data-i18n="pd_tag_1">微信小程序</span>
-                <span class="tag" data-i18n="pd_tag_2">全科诊断</span>
-                <span class="tag" data-i18n="pd_tag_3">异宠支持</span>
-                <span class="tag" data-i18n="pd_tag_4">行为分析</span>
-            </div>
-        </div>
+    <div class="project-header">
+      <h1 style="font-size: 2.5rem; margin-bottom: 15px; color: var(--text-dark);" data-i18n="pd_page_title">
+        宠物健康 AI 智能诊断系统
+      </h1>
+      <p style="font-size: 1.2rem; color: var(--text-gray);" data-i18n="pd_page_sub">
+        基于 Qwen2.5-VL 多模态大模型与 RAG 技术的全科宠物医疗辅助平台
+      </p>
 
-        <h2 class="category-title" data-i18n="pd_arch_title">🏗️ 系统架构 (System Architecture)</h2>
-        <div class="architecture-section">
-            <div class="arch-img-wrapper">
-                <img src="arch.png" alt="System Arch" onerror="this.style.display='none'; this.parentNode.innerHTML='<p style=\'color:#aaa;\'>arch.png</p>'">
-            </div>
-            <div style="background: #F0F9FF; padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary-blue);">
-                <h4 style="margin-top: 0; color: var(--secondary-blue); margin-bottom: 10px;" data-i18n="pd_arch_desc_title">架构设计说明：</h4>
-                <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0;" data-i18n="pd_arch_content"></p>
-            </div>
-        </div>
-
-        <div class="feature-section">
-            <h2 class="category-title" data-i18n="pd_clin_title">🩺 AI 临床诊断模块 (Clinical Diagnosis)</h2>
-            <p style="color: var(--text-gray);" data-i18n="pd_clin_sub">基于 CV 计算机视觉与医学知识库，覆盖四大核心科室。</p>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🦠</div>
-                    <h3 data-i18n="pd_feat_skin">皮肤病变检测</h3>
-                    <p data-i18n="pd_feat_skin_desc"></p>
-                    <div><span class="tech-mini-tag">Contrastive Learning</span></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👂</div>
-                    <h3 data-i18n="pd_feat_ear">耳道健康分析</h3>
-                    <p data-i18n="pd_feat_ear_desc"></p>
-                    <div><span class="tech-mini-tag">Texture Analysis</span></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">👁️</div>
-                    <h3 data-i18n="pd_feat_eye">眼科疾病筛查</h3>
-                    <p data-i18n="pd_feat_eye_desc"></p>
-                    <div><span class="tech-mini-tag">YOLOv8-Seg</span></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💩</div>
-                    <h3 data-i18n="pd_feat_dig">消化系统分析</h3>
-                    <p data-i18n="pd_feat_dig_desc"></p>
-                    <div><span class="tech-mini-tag">Medical Logic</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="feature-section">
-            <h2 class="category-title" data-i18n="pd_behav_title">🧠 行为与认知分析 (Behavior & Cognition)</h2>
-            
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">😺</div>
-                    <h3 data-i18n="pd_feat_emo">多模态情绪识别</h3>
-                    <p data-i18n="pd_feat_emo_desc"></p>
-                    <div><span class="tech-mini-tag">Multimodal Fusion</span></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🐕</div>
-                    <h3 data-i18n="pd_feat_act">异常行为监控</h3>
-                    <p data-i18n="pd_feat_act_desc"></p>
-                    <div><span class="tech-mini-tag">Action Recognition</span></div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">🔎</div>
-                    <h3 data-i18n="pd_feat_breed">精准品种鉴定</h3>
-                    <p data-i18n="pd_feat_breed_desc"></p>
-                    <div><span class="tech-mini-tag">Fine-grained Classification</span></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="feature-section">
-            <h2 class="category-title" data-i18n="pd_exo_title">🐹 异宠专科支持 (Exotic Pets)</h2>
-            <div class="card" style="background: #FDFEFE; border-left: 5px solid #FFB74D;">
-                <div style="display: flex; align-items: center; margin-bottom: 15px;">
-                    <span style="font-size: 1.5rem; margin-right: 10px;">🦎</span>
-                    <h3 style="margin: 0; color: #E65100;" data-i18n="pd_exo_card_title">爬行类与小型哺乳动物支持</h3>
-                </div>
-                <p style="color: var(--text-gray);" data-i18n="pd_exo_card_sub">针对非犬猫类宠物建立专门的知识库与识别模型，填补市场空白。</p>
-                <ul class="project-details" data-i18n="pd_exo_list"></ul>
-            </div>
-        </div>
-
-        <h2 class="category-title" data-i18n="pd_ui_title">📱 界面功能展示 (UI Showcase)</h2>
-        <div class="mobile-showcase">
-            <div>
-                <div class="phone-frame"><img src="ui1.png" alt="UI1" onerror="this.style.display='none'"></div>
-                <div class="showcase-caption" data-i18n="pd_ui_1">1. 主界面</div>
-            </div>
-            <div>
-                <div class="phone-frame"><img src="ui2.png" alt="UI2" onerror="this.style.display='none'"></div>
-                <div class="showcase-caption" data-i18n="pd_ui_2">2. 宠物音频翻译界面</div>
-            </div>
-            <div>
-                <div class="phone-frame"><img src="ui3.png" alt="UI3" onerror="this.style.display='none'"></div>
-                <div class="showcase-caption" data-i18n="pd_ui_3">3. 部分结果展示</div>
-            </div>
-        </div>
+      <div style="margin-top: 30px;">
+        <span class="tag" data-i18n="pd_tag_1">微信小程序</span>
+        <span class="tag" data-i18n="pd_tag_2">全科诊断</span>
+        <span class="tag" data-i18n="pd_tag_3">异宠支持</span>
+        <span class="tag" data-i18n="pd_tag_4">行为分析</span>
+      </div>
     </div>
 
-    <script>
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-        });
-    </script>
-    <script src="lang.js"></script>
+    <h2 class="category-title" data-i18n="pd_arch_title">🏗️ 系统架构 (System Architecture)</h2>
+    <div class="architecture-section">
+      <div class="arch-img-wrapper">
+        <img src="arch.png" alt="System Arch"
+          onerror="this.style.display='none'; this.parentNode.innerHTML='<p style=\'color:#aaa;\'>arch.png</p>'">
+      </div>
+      <div style="background: #F0F9FF; padding: 25px; border-radius: 12px; border-left: 5px solid var(--primary-blue);">
+        <h4 style="margin-top: 0; color: var(--secondary-blue); margin-bottom: 10px;" data-i18n="pd_arch_desc_title">
+          架构设计说明：
+        </h4>
+        <p style="font-size: 0.95rem; color: var(--text-dark); margin-bottom: 0;" data-i18n="pd_arch_content"></p>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="category-title" data-i18n="pd_clin_title">🩺 AI 临床诊断模块 (Clinical Diagnosis)</h2>
+      <p style="color: var(--text-gray);" data-i18n="pd_clin_sub">基于 CV 计算机视觉与医学知识库，覆盖四大核心科室。</p>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🦠</div>
+          <h3 data-i18n="pd_feat_skin">皮肤病变检测</h3>
+          <p data-i18n="pd_feat_skin_desc"></p>
+          <div><span class="tech-mini-tag">Contrastive Learning</span></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👂</div>
+          <h3 data-i18n="pd_feat_ear">耳道健康分析</h3>
+          <p data-i18n="pd_feat_ear_desc"></p>
+          <div><span class="tech-mini-tag">Texture Analysis</span></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">👁️</div>
+          <h3 data-i18n="pd_feat_eye">眼科疾病筛查</h3>
+          <p data-i18n="pd_feat_eye_desc"></p>
+          <div><span class="tech-mini-tag">YOLOv8-Seg</span></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💩</div>
+          <h3 data-i18n="pd_feat_dig">消化系统分析</h3>
+          <p data-i18n="pd_feat_dig_desc"></p>
+          <div><span class="tech-mini-tag">Medical Logic</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="category-title" data-i18n="pd_behav_title">🧠 行为与认知分析 (Behavior & Cognition)</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card">
+          <div class="feature-icon">😺</div>
+          <h3 data-i18n="pd_feat_emo">多模态情绪识别</h3>
+          <p data-i18n="pd_feat_emo_desc"></p>
+          <div><span class="tech-mini-tag">Multimodal Fusion</span></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🐕</div>
+          <h3 data-i18n="pd_feat_act">异常行为监控</h3>
+          <p data-i18n="pd_feat_act_desc"></p>
+          <div><span class="tech-mini-tag">Action Recognition</span></div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🔎</div>
+          <h3 data-i18n="pd_feat_breed">精准品种鉴定</h3>
+          <p data-i18n="pd_feat_breed_desc"></p>
+          <div><span class="tech-mini-tag">Fine-grained Classification</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="category-title" data-i18n="pd_exo_title">🐹 异宠专科支持 (Exotic Pets)</h2>
+      <div class="card" style="background: #FDFEFE; border-left: 5px solid #FFB74D;">
+        <div style="display: flex; align-items: center; margin-bottom: 15px;">
+          <span style="font-size: 1.5rem; margin-right: 10px;">🦎</span>
+          <h3 style="margin: 0; color: #E65100;" data-i18n="pd_exo_card_title">爬行类与小型哺乳动物支持</h3>
+        </div>
+        <p style="color: var(--text-gray);" data-i18n="pd_exo_card_sub">
+          针对非犬猫类宠物建立专门的知识库与识别模型，填补市场空白。
+        </p>
+        <ul class="project-details" data-i18n="pd_exo_list"></ul>
+      </div>
+    </div>
+
+    <!-- ✅ 双向翻译：视频同尺寸展示 -->
+    <h2 class="category-title">📱 双向翻译模块</h2>
+    <div class="mobile-showcase">
+      <div>
+        <div class="phone-frame">
+          <video
+            id="bilingual-demo-video"
+            src="video.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            controls
+          ></video>
+        </div>
+        <div class="showcase-caption">双向翻译演示视频</div>
+      </div>
+    </div>
+
+    <!-- UI Showcase -->
+    <h2 class="category-title" data-i18n="pd_ui_title">📱 界面功能展示 (UI Showcase)</h2>
+    <div class="mobile-showcase">
+      <div>
+        <div class="phone-frame"><img src="ui1.png" alt="UI1" onerror="this.style.display='none'"></div>
+        <div class="showcase-caption" data-i18n="pd_ui_1">1. 主界面</div>
+      </div>
+      <div>
+        <div class="phone-frame"><img src="ui2.png" alt="UI2" onerror="this.style.display='none'"></div>
+        <div class="showcase-caption" data-i18n="pd_ui_2">2. 宠物音频翻译界面</div>
+      </div>
+      <div>
+        <div class="phone-frame"><img src="ui3.png" alt="UI3" onerror="this.style.display='none'"></div>
+        <div class="showcase-caption" data-i18n="pd_ui_3">3. 部分结果展示</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // hamburger
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+    });
+
+    // video autoplay fallback（被浏览器拦截就算了，用户手动点 controls 播放）
+    window.addEventListener('DOMContentLoaded', async () => {
+      const video = document.getElementById('bilingual-demo-video');
+      if (!video) return;
+      try { await video.play(); } catch (e) {}
+    });
+  </script>
+
+  <script src="lang.js"></script>
 </body>
 </html>
